@@ -1,32 +1,58 @@
 package org.myorg.service;
 
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
+import org.bson.Document;
 import org.myorg.model.Message;
-import org.myorg.model.User;
+import org.myorg.response.MessageResponse;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import java.time.LocalDateTime;
 import java.util.*;
+
+import static com.mongodb.client.model.Indexes.descending;
 
 @ApplicationScoped
 public class MessageService {
-    private Set<Message> messages;
+    @Inject
+    MongoClient mongoClient;
 
-    public MessageService() {
-        messages = Collections.newSetFromMap(Collections.synchronizedMap(new LinkedHashMap<>()));
-    }
+    public List<MessageResponse> list() {
+        List<MessageResponse> messages = new ArrayList<>();
+        MongoCursor<Document> cursor = getCollection().find().sort(descending("created_at")).limit(10).iterator();
 
-    public List<Message> list() {
-        List<Message> res = new ArrayList<>();
-        List<Message> msg = messages.stream().toList();
-        for (int index = messages.size() > 10 ? messages.size() - 10 : 0; index < messages.size(); index++) {
-            res.add(msg.get(index));
+        try {
+            while (cursor.hasNext()) {
+                Document document = cursor.next();
+                MessageResponse message = new MessageResponse();
+
+                message.setAuthor(document.getString("author"));
+                message.setMessage(document.getString("message"));
+
+                messages.add(message);
+            }
+        } finally {
+            cursor.close();
         }
 
-        return res;
+        return messages;
     }
 
-    public List<Message> add(Message newMessage) {
-        messages.add(newMessage);
+    public List<MessageResponse> add(Message newMessage) {
+        Message message = new Message(newMessage.getAuthor(), newMessage.getMessage());
+
+        Document document = new Document()
+                .append("author", message.getAuthor())
+                .append("message", message.getMessage());
+
+        getCollection().insertOne(document);
 
         return list();
+    }
+
+    public MongoCollection<Document> getCollection() {
+        return mongoClient.getDatabase("messages").getCollection("messages");
     }
 }

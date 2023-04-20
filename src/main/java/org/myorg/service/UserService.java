@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class UserService {
-    private Set<User> users;
+    private final Set<User> users;
 
     public UserService() {
         users = Collections.newSetFromMap(Collections.synchronizedMap(new LinkedHashMap<>()));
