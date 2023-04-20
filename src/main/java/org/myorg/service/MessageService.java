@@ -45,7 +45,8 @@ public class MessageService {
 
         Document document = new Document()
                 .append("author", message.getAuthor())
-                .append("message", message.getMessage());
+                .append("message", message.getMessage())
+                .append("created_at", message.getCreated_at());
 
         getCollection().insertOne(document);
 
