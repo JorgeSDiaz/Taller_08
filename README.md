@@ -26,7 +26,12 @@
 ## JS
 ## FUNCIONAMIENTO AWS
 ### EC2
+- En EC2 vamos a estar corriendo el API twitter desarrollada en QUARTUS
+- Verificamos que este corriendo con los logs
+![image](https://user-images.githubusercontent.com/98216838/233522449-d00b44c5-0d49-4375-9e31-0f932846d0ab.png)
+
 ### S3
+- En el Bucket de S3 vamos a tener la parte front de Twitter la cual va estar conectada a la api la cual se encuentra en una instancia EC2
 ## Video explicativo
 
 ## Documentacion
