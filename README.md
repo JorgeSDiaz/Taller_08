@@ -4,6 +4,8 @@
 - David Leon
 - Juan Molina
 ## Objetivo: 
+## como descargar el proyecto:
+- primer paso es clonar el proyecto "git clone https://github.com/jorge-stack/Taller_08"
 - Desarrollar microservicos similares a Twitter utilizando Quarkus, implementando seguridad JWT con el servicio cognito de AWS y separando el monolito en tres microservicios independientes para su despliegue en AWS con EC2. También se debe crear una aplicación JS para usar el servicio, desplegarla en S3 y realizar pruebas para asegurar su correcto funcionamiento.
 ## Herramientas
  - Maven
