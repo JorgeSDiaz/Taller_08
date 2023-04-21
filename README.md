@@ -33,7 +33,7 @@
 ### S3
 - En el Bucket de S3 vamos a tener la parte front de Twitter la cual va estar conectada a la api la cual se encuentra en una instancia EC2
 ## Video explicativo
-
+- https://youtu.be/vdWq0J_30pI
 ## Documentacion
 
 Para crear la documentación del proyecto se hace con el siguiente comando:
