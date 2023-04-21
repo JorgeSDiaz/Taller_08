@@ -1,6 +1,5 @@
 # TALLER 8: Microservicios
 Utilizando el Framework orientado a contenedores quarkus, se desarrolla una aplicación que permite realizar un Log-in para registrar Twitts en una base de datos y poder recuperar los ultimos 10 registrados. La aplicación se despliega en AWS utilizando sus servicios de S3 e EC2.
-![Arquitectura](https://i.imgur.com/9d1ttHm.png)
 
 ---
 ### Prerrequisitos
