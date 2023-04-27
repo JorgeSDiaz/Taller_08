@@ -1,5 +1,6 @@
 package org.myorg.service;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.myorg.model.User;
 import org.myorg.persistence.UserServiceException;
 import org.myorg.response.UserResponse;
@@ -16,8 +17,8 @@ public class UserService {
 
     public UserService() {
         users = Collections.newSetFromMap(Collections.synchronizedMap(new LinkedHashMap<>()));
-        users.add(new User("jorge", "12345"));
-        users.add(new User("juca", "54321"));
+        users.add(new User("jorge", BCrypt.hashpw("12345", BCrypt.gensalt())));
+        users.add(new User("juca", BCrypt.hashpw("54321", BCrypt.gensalt())));
     }
 
     public Set<UserResponse> list() {
@@ -25,14 +26,14 @@ public class UserService {
     }
 
     public Set<UserResponse> add(User newUser) {
-        users.add(newUser);
+        users.add(new User(newUser.getUsername(), BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt())));
         return list();
     }
 
     public UserResponse check(User user) throws UserServiceException {
         User userRegistered = null;
         for (User us: users) {
-            if (us.getUsername().equals(user.getUsername()) && us.getPassword().equals(user.getPassword())) {
+            if (us.getUsername().equals(user.getUsername()) && BCrypt.checkpw(user.getPassword(), us.getPassword())) {
                 userRegistered = us;
                 break;
             }
