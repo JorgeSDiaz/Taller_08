@@ -34,18 +34,22 @@ Ponemos a correr dentro de la instancia, el contenedor usando la imagen alojada 
 Los archivos estaticos necesarios para desplegarlo, se encuentran en este repositorio, lo unico seria clonarlo con el siguiente comando
 
 	git clone https://github.com/jorge-stack/Taller_08.git
-	
 	http://fronttaller08.s3-website-us-east-1.amazonaws.com
 	
+![Imgur](https://i.imgur.com/DKI5rE9.png)
 ![Log in](https://i.imgur.com/3IaMud0.png)
 
 ### Message Service
+Lo levantamos con el siguiente comando
+	
+	 docker run -d -p 5000:8080 --name taller  jsdiaz/quarkust
+
 ![Imgur](https://i.imgur.com/zOM8MU1.png)
-![Imgur](https://i.imgur.com/nyKZrtv.png)
+![Imgur](https://i.imgur.com/JGPX6VS.png)
 
 ### Run
 
-[Aquí ](https://youtu.be/vdWq0J_30pI) podran encontrar un video muestra del funcionamiento de la aplicación una vez es desplegada
+[Aquí](https://youtu.be/wvGGUyK2w_Q) podran encontrar un video muestra del funcionamiento de la aplicación una vez es desplegada
 
 ---
 ## Construido con
@@ -58,8 +62,8 @@ Los archivos estaticos necesarios para desplegarlo, se encuentran en este reposi
 * [JavaScript](https://developer.mozilla.org/es/docs/Learn/JavaScript/First_steps/What_is_JavaScript): JavaScript es un lenguaje de programación o de secuencias de comandos que te permite implementar funciones complejas en páginas web
 * [CSS](https://developer.mozilla.org/es/docs/Learn/CSS/First_steps/What_is_CSS): Las hojas de estilo en cascada permiten crear páginas web atractivas.
 * [AWS](https://www.inbest.cloud/comunidad/qu%C3%A9-es-aws): Amazon Web Services es una plataforma de servicios de nube que te ofrece potencia de cómputo, almacenamiento de bases de datos, entrega de contenido y otra funcionalidad para ayudar a tu negocio a escalar y crecer
-* **[Docker](https://www.ibm.com/co-es/topics/docker)**: Docker es una plataforma de código abierto de contenedorización . Permite a los desarrolladores empaquetar aplicaciones en contenedores, componentes ejecutables estandarizados que combinan el código fuente de la aplicación con las bibliotecas del sistema operativo (SO) y las dependencias necesarias para ejecutar ese código en cualquier entorno.
-* **[Quarkus](https://es.quarkus.io/about/)**:Quarkus fue creado para permitir a los desarrolladores de Java crear aplicaciones para un mundo moderno y nativo de la nube. Quarkus es un marco Java nativo de Kubernetes adaptado a GraalVM y HotSpot, elaborado a partir de las mejores bibliotecas y estándares Java. El objetivo es convertir a Java en la plataforma líder en Kubernetes y entornos sin servidor, al tiempo que ofrece a los desarrolladores un marco para abordar una gama más amplia de arquitecturas de aplicaciones distribuidas.
+* [Docker](https://www.ibm.com/co-es/topics/docker): Docker es una plataforma de código abierto de contenedorización . Permite a los desarrolladores empaquetar aplicaciones en contenedores, componentes ejecutables estandarizados que combinan el código fuente de la aplicación con las bibliotecas del sistema operativo (SO) y las dependencias necesarias para ejecutar ese código en cualquier entorno.
+* [Quarkus](https://es.quarkus.io/about/):Quarkus fue creado para permitir a los desarrolladores de Java crear aplicaciones para un mundo moderno y nativo de la nube. Quarkus es un marco Java nativo de Kubernetes adaptado a GraalVM y HotSpot, elaborado a partir de las mejores bibliotecas y estándares Java. El objetivo es convertir a Java en la plataforma líder en Kubernetes y entornos sin servidor, al tiempo que ofrece a los desarrolladores un marco para abordar una gama más amplia de arquitecturas de aplicaciones distribuidas.
 
 ## Autores
 * **[Jorge David Saenz Diaz](https://co.linkedin.com/in/jorgedsaenzd/en)**  - [Jorge-Stack](https://github.com/jorge-stack)
